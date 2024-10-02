@@ -1,6 +1,5 @@
 package com.decroly.daw;
 
-<<<<<<< HEAD
 import java.util.Scanner;
 
 public class Ejercico2_MDC {
@@ -131,15 +130,5 @@ public class Ejercico2_MDC {
      System.out.println("El factorial de " + num + " es: " + factorial);
      
 	    }
-	
-	} 
-=======
-public class Ejercico2_MDC {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
->>>>>>> 231769317ad45c5dd1342a8653a8f1e38f44ff2a
-
 }

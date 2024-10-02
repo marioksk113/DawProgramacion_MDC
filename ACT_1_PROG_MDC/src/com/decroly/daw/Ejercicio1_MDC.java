@@ -1,20 +1,14 @@
 package com.decroly.daw;
-
 import java.util.Scanner;
-
 public class Ejercicio1_MDC {
-
     public static void main(String[] args) {
-
         // 1. Buenos Dias
         System.out.println("Buenos días!");
-
         // 2. Lado Fijo
         int ladoFijo = 5;
         int areaCuadradoFijo = ladoFijo * ladoFijo;
         
         System.out.println("El área del cuadrado de lado "+ladoFijo +" es: " + areaCuadradoFijo);
-
         // 3. Lado Manual
         System.out.print("Lado del cuadrado: ");
         Scanner scanner = new Scanner(System.in);
@@ -47,25 +41,20 @@ public class Ejercicio1_MDC {
         double longCircunferencia = 2 * pi * radio;
         double areaCirculo = pi * Math.pow(radio, 2);
         double volumenEsfera = (4.0 / 3.0) * pi * Math.pow(radio, 3);
-
         System.out.println("Longitud de la circunferencia: " + longCircunferencia);
         System.out.println("Área del círculo: " + areaCirculo);
         System.out.println("Volumen de la esfera: " + volumenEsfera);
-
         // 6.Descuento
         scanner = new Scanner(System.in);
-
         System.out.print("Introduce el precio original del artículo: ");
         
         double precioOriginal = scanner.nextDouble();
-
         System.out.print("Introduce el precio de venta real: ");
         
         double precioVenta = scanner.nextDouble();
         double Descuento = ((precioOriginal - precioVenta) / precioOriginal) * 100;
         
         System.out.println("El porcentaje de descuento es: " + Descuento + "%");
-
         // 7. Millas a metros
         scanner = new Scanner(System.in);
         
@@ -78,16 +67,12 @@ public class Ejercicio1_MDC {
         
         // 8. Orden Ascendente
         scanner = new Scanner(System.in);
-
         System.out.print("Introduce el primer número: ");
         int nume1 = scanner.nextInt();
-
         System.out.print("Introduce el segundo número: ");
         int nume2 = scanner.nextInt();
-
         int menor = Math.min(nume1, nume2);
         int mayor = Math.max(nume1, nume2);
-
         System.out.println("Los números en orden ascendente son: " + menor + " y " + mayor);
         
         // 9. Mayor o igual
@@ -95,10 +80,8 @@ public class Ejercicio1_MDC {
  
         System.out.print("Introduce el primer número: ");
         int numer1 = scanner.nextInt();
-
         System.out.print("Introduce el segundo número: ");
         int numer2 = scanner.nextInt();
-
          
         System.out.println("Son iguales: "+(numer1 == numer2));
         System.out.println("El numero1 es mayor: "+(numer1 >= numer2));
@@ -121,8 +104,14 @@ public class Ejercicio1_MDC {
         System.out.println("Este es el mayor: "+(Math.max(mayorej10, mayorej101)));
         
         // 11.Mates
-        int nu1 = 20;
-        int nu2 = 2;
+        scanner = new Scanner(System.in);
+        System.out.println("NO SE PUEDE DIVIDIR POR 0");
+        
+        System.out.println("Introduce el primer número: ");
+        int nu1 = scanner.nextInt();
+        
+        System.out.println("Introduce el segundo número: ");
+        int nu2 = scanner.nextInt();
         int suma1 = nu1 + nu2;
         int resta1 = nu1 - nu2;
         int producto1 = nu1 * nu2;
@@ -132,7 +121,26 @@ public class Ejercicio1_MDC {
         System.out.println(resta1);
         System.out.println(producto1);
         System.out.println(division1);
-		
+        
+       // 12. Mayor
+       scanner = new Scanner(System.in);
+       
+       System.out.println("Introduce el primer número: ");
+       int numax1 = scanner.nextInt();
+       
+       System.out.println("Introduce el segundo número: ");
+       int numax2 = scanner.nextInt();
+       
+       int maxnumber = Math.max(numax1, numax2);
+       
+       System.out.println("Este es el mayor: "+(maxnumber));
+		 
+       // 13. Positivo, Negativo
+       scanner = new Scanner(System.in);
+       
+       System.out.print("Introduce el número: ");
+       int numerpo1 = scanner.nextInt();
+       System.out.println("ES POSITVO: "+(numerpo1 >= 0));
     }
         
         
