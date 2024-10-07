@@ -170,186 +170,156 @@ public class Ejercico2_MDC {
 
 	scanner = new Scanner(System.in);
 
-	System.out.println("Numero 1: ");
+        int contador = 0;
+        boolean hayNegativo = false;
 
-		int n1 = scanner.nextInt();
-	
-	System.out.println("Numero 2: ");
+        System.out.println("Introduce 10 números no nulos:");
 
-		int n2 = scanner.nextInt();
-	
-	System.out.println("Numero 3: ");
+		
+        while (contador < 10) {
+			scanner = new Scanner(System.in);
+            System.out.println("Número " + (contador + 1) + ": ");
+            int numero = scanner.nextInt();
 
-		int n3 = scanner.nextInt();
-	
-	System.out.println("Numero 4: ");
+            if (numero < 0) {
+                hayNegativo = true;
+            }
 
-		int n4 = scanner.nextInt();
+            contador++;
+        }
 
-	System.out.println("Numero 5: ");
-
-		int n5 = scanner.nextInt();
-	
-	System.out.println("Numero 6: ");
-
-		int n6 = scanner.nextInt();
-	
-	System.out.println("Numero 7: ");
-
-		int n7 = scanner.nextInt();
-	
-	System.out.println("Numero 8: ");
-
-		int n8 = scanner.nextInt();
-
-	System.out.println("Numero 9: ");
-
-		int n9 = scanner.nextInt();
-	
-	System.out.println("Numero 10: ");
-
-		int n10 = scanner.nextInt();
-
-		if (n1 < 0 || n2 < 0 || n3 < 0 || n4 < 0 || n5 < 0 || 
-			n6 < 0 || n7 < 0 || n8 < 0 || n9 < 0 || n10 < 0) {
-			
-			System.out.print("Hay numeros negativos");
-		} else {
-			System.out.println("No hay numeros negativos");
-		}
-
+        if (hayNegativo) {
+            System.out.println("Hay números negativos.");
+        } else {
+            System.out.println("No hay números negativos.");
+        }
 	// 11
 
 	scanner = new Scanner(System.in);
 
-	System.out.println("Numero 1: ");
-
-		int nm1 = scanner.nextInt();
-	
-	System.out.println("Numero 2: ");
-
-		int nm2 = scanner.nextInt();
-	
-	System.out.println("Numero 3: ");
-
-		int nm3 = scanner.nextInt();
-	
-	System.out.println("Numero 4: ");
-
-		int nm4 = scanner.nextInt();
-
-	System.out.println("Numero 5: ");
-
-		int nm5 = scanner.nextInt();
-	
-	System.out.println("Numero 6: ");
-
-		int nm6 = scanner.nextInt();
-	
-	System.out.println("Numero 7: ");
-
-		int nm7 = scanner.nextInt();
-	
-	System.out.println("Numero 8: ");
-
-		int nm8 = scanner.nextInt();
-
-	System.out.println("Numero 9: ");
-
-		int nm9 = scanner.nextInt();
-	
-	System.out.println("Numero 10: ");
-
-		int nm10 = scanner.nextInt();
-
-		
+		int contador11 = 0;
 		int positivos = 0;
 		int negativos = 0;
-		
-		if (nm1 < 0) {
 
-			positivos++;
+	System.out.println("Introduce 10 números no nulos:");
 
-		} else {
-			negativos++;
+		while (contador11 < 10) {
+			System.out.println("Número " + (contador11 + 1) + ": ");
+			int numero = scanner.nextInt();
+
+			if (numero > 0) {
+				positivos++;
+
+			} else if (numero < 0) {
+				negativos++;
+			}
+
+			contador11++; 
 		}
 
-		if (nm2 < 0) {
+	System.out.println("Números positivos: " + positivos);
+	System.out.println("Números negativos: " + negativos);
 
-			positivos++;
+	// 12	
 
-		} else {
-			negativos++;
-		}
+	scanner = new Scanner(System.in);
 
-		if (nm3 < 0) {
+        int numero;
+        int positivos12 = 0;
+        int negativos12 = 0;
+        boolean hayNegativo12 = false;
 
-			positivos++;
+    System.out.println("Introduce una secuencia de números (introduce 0 para finalizar):");
 
-		} else {
-			negativos++;
-		}
+        
+        while (true) {
+            
+			numero = scanner.nextInt();
 
-		if (nm4 < 0) {
+            if (numero == 0) {
+                break;
+            }
 
-			positivos++;
+            if (numero > 0) {
+                positivos12++;
 
-		} else {
-			negativos++;
-		}
+            } else {
+                negativos12++;
+                hayNegativo12 = true;
+            }
+        }
 
-		if (nm5 < 0) {
+        if (hayNegativo12) {
 
-			positivos++;
+            System.out.println("Se ha introducido al menos un número negativo.");
+        } else {
 
-		} else {
-			negativos++;
-		}
+            System.out.println("No se ha introducido ningún número negativo.");
+        }
 
-		if (nm6 < 0) {
+    System.out.println("Números positivos: " + positivos12);
+    System.out.println("Números negativos: " + negativos12);
 
-			positivos++;
+	// 13
 
-		} else {
-			negativos++;
-		}
+		int suma = 0;
+        int producto = 1;
 
-		if (nm7 < 0) {
+      
+        for (int i = 1; i <= 10; i++) {
+            suma += i;       
+            producto *= i;    
+        }
 
-			positivos++;
+        System.out.println("La suma de los 10 primeros números naturales es: " + suma);
+        System.out.println("El producto de los 10 primeros números naturales es: " + producto);
+    
+	// 14
 
-		} else {
-			negativos++;
-		}
+	scanner = new Scanner(System.in);
 
-		if (nm8 < 0) {
 
-			positivos++;
+    System.out.println("Introduce el nombre del trabajador: ");
+       
+		String nombre = scanner.nextLine();
 
-		} else {
-			negativos++;
-		}
 
-		if (nm9 < 0) {
+    System.out.println("Introduce el número de horas trabajadas: ");
+        
+		double horasTrabajadas = scanner.nextDouble();
 
-			positivos++;
+    System.out.println("Introduce el pago por hora: ");
+        
+		double tarifaHora = scanner.nextDouble();
 
-		} else {
-			negativos++;
-		}
+		double salarioBruto;
 
-		if (nm10 < 0) {
+        if (horasTrabajadas <= 35) {
 
-			positivos++;
+            salarioBruto = horasTrabajadas * tarifaHora;
+			
+        } else {
+        
+            salarioBruto = 35 * tarifaHora + (horasTrabajadas - 35) * tarifaHora * 1.5;
+        }
 
-		} else {
-			negativos++;
-		}
-	
-	System.out.println("Cantidad de numeros positivos: "+positivos);
-	System.out.println("Cantidad de numeros negativos: "+negativos);
+        double impuestos = 0;
+        if (salarioBruto > 900) {
 
-	
+            impuestos += (salarioBruto - 900) * 0.45;
+            impuestos += 400 * 0.25;
+
+        } else if (salarioBruto > 500) {
+
+            impuestos += (salarioBruto - 500) * 0.25;
+        }
+
+        double salarioNeto = salarioBruto - impuestos;
+
+	System.out.println("Nombre del trabajador: " + nombre);
+	System.out.println("Salario bruto: " + salarioBruto + " euros");
+	System.out.println("Impuestos: " + impuestos + " euros");
+	System.out.println("Salario neto: " + salarioNeto + " euros");
 
 
 
