@@ -204,6 +204,7 @@ public class Ejercico2_MDC {
 	System.out.println("Introduce 10 números no nulos:");
 
 		while (contador11 < 10) {
+
 			System.out.println("Número " + (contador11 + 1) + ": ");
 			int numero = scanner.nextInt();
 
@@ -224,41 +225,38 @@ public class Ejercico2_MDC {
 
 	scanner = new Scanner(System.in);
 
-        int numero;
-        int positivos12 = 0;
-        int negativos12 = 0;
-        boolean hayNegativo12 = false;
+		int numero;
+		int positivos12 = 0;
+		int negativos12 = 0;
+		boolean hayNegativo12 = false;
 
-    System.out.println("Introduce una secuencia de números (introduce 0 para finalizar):");
+	System.out.println("Introduce una secuencia de números (introduce 0 para finalizar):");
 
-        
-        while (true) {
-            
+		do {
 			numero = scanner.nextInt();
 
-            if (numero == 0) {
-                break;
-            }
+			if (numero > 0) {
+				positivos12++;
 
-            if (numero > 0) {
-                positivos12++;
+			} else if (numero < 0) {
 
-            } else {
-                negativos12++;
-                hayNegativo12 = true;
-            }
-        }
+				negativos12++;
+				hayNegativo12 = true;
+			}
 
-        if (hayNegativo12) {
+		} while (numero != 0);
 
-            System.out.println("Se ha introducido al menos un número negativo.");
-        } else {
+		if (hayNegativo12) {
 
-            System.out.println("No se ha introducido ningún número negativo.");
-        }
+			System.out.println("Se ha introducido al menos un número negativo.");
 
-    System.out.println("Números positivos: " + positivos12);
-    System.out.println("Números negativos: " + negativos12);
+		} else {
+			
+			System.out.println("No se ha introducido ningún número negativo.");
+		}
+
+	System.out.println("Números positivos: " + positivos12);
+	System.out.println("Números negativos: " + negativos12);
 
 	// 13
 
