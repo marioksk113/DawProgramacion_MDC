@@ -236,6 +236,7 @@ public class Ejercico2_MDC {
 			numero = scanner.nextInt();
 
 			if (numero > 0) {
+				
 				positivos12++;
 
 			} else if (numero < 0) {
@@ -251,7 +252,7 @@ public class Ejercico2_MDC {
 			System.out.println("Se ha introducido al menos un número negativo.");
 
 		} else {
-			
+
 			System.out.println("No se ha introducido ningún número negativo.");
 		}
 
