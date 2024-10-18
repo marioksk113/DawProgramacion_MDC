@@ -1,0 +1,10 @@
+package com.decroly.daw;
+
+import java.util.Scanner;
+
+public class Ejercicio4_MDC {
+    public static void main(String[] args) {
+
+	System.out.println("ola Anuar;
+}
+}
