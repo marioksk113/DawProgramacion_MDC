@@ -9,7 +9,7 @@ public class Ejercicio4_MDC {
 
     Scanner scanner = new Scanner(System.in);
 
-    /**double [] numeros = new double[10];
+    double [] numeros = new double[10];
 
     System.out.println("Introduce 10 números reales:");
 
@@ -186,7 +186,7 @@ public class Ejercicio4_MDC {
         for (int i = 0; i < num7.length; i++) {
             
             System.out.println("Posición " + i + ": " + num7[i]);
-        } **/
+        }
 
         // 8 
         
@@ -212,6 +212,96 @@ public class Ejercicio4_MDC {
             }
         }
 
+        // 9
+
+        int[] array = new int[100];
+        scanner = new Scanner(System.in);
+        
+
+             for (int i = 0; i < array.length; i++) {
+           
+                array[i] = 1 + (int) (Math.random() * 10);
+            }
+
+        System.out.print("Introduce un valor N (1-10): ");
+        int n9 = scanner.nextInt();
+
+        System.out.print("El valor " + n9 + " aparece en las posiciones: ");
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == n9) {
+                    System.out.print(i + " ");
+                }
+            }
+
+        // 10
+
+        scanner = new Scanner(System.in);
+
+        System.out.print("Introduce el número de personas: ");
+        
+        int n10 = scanner.nextInt();
+        double[] alturas = new double[n10];
+
+            for (int i = 0; i < n10; i++) {
+                System.out.print("Introduce la altura de la persona " + (i + 1) + ": ");
+                alturas[i] = scanner.nextDouble();
+            }
+
+
+        double suma10 = 0, max10 = alturas[0], min10 = alturas[0];
+            
+            for (double altura : alturas) {
+                suma10 += altura;
+                if (altura > max10) max10 = altura;
+                if (altura < min10) min10 = altura;
+            }
+
+        double media10 = suma10 / n10;
+
+        int porEncima = 0, porDebajo = 0;
+        
+            for (double altura : alturas) {
+                if (altura > media10) porEncima++;
+                if (altura < media10) porDebajo++;
+            }
+
+        System.out.println("Altura media: " + media10);
+        System.out.println("Altura máxima: " + max10);
+        System.out.println("Altura mínima: " + min10);
+        System.out.println(porEncima + " personas miden por encima de la media.");
+        System.out.println(porDebajo + " personas miden por debajo de la media.");
+    
+        // 11 
+
+        int[] array1 = new int[100];
+        int[] array2 = new int[100];
+
+            for (int i = 0; i < 100; i++) {
+                
+                array1[i] = i + 1;
+            }
+
+            for (int i = 0; i < 100; i++) {
+               
+                array2[i] = array1[99 - i];
+            }
+
+        System.out.println("Array 1:");
+        
+            for (int i = 0; i < 100; i++) {
+                
+                System.out.print(array1[i] + " ");
+            }
+
+        System.out.println("\nArray 2 (inverso):");
+            
+            for (int i = 0; i < 100; i++) {
+                
+                System.out.print(array2[i] + " ");
+            }
+
+        
+        // 12
 
     }
 
