@@ -9,7 +9,7 @@ public class Ejercicio4_MDC {
 
     Scanner scanner = new Scanner(System.in);
 
-    double [] numeros = new double[10];
+   /** double [] numeros = new double[10];
 
     System.out.println("Introduce 10 números reales:");
 
@@ -297,13 +297,110 @@ public class Ejercicio4_MDC {
             
             for (int i = 0; i < 100; i++) {
                 
-                System.out.print(array2[i] + " ");
+                System.out.print(array2[i] + " "); 
             }
 
         
         // 12
 
+        scanner = new Scanner(System.in);
+        int[] array12 = new int[10];
+        char option;
+
+        do {
+            System.out.println("Menú:");
+            System.out.println("a. Mostrar valores");
+            System.out.println("b. Introducir valor");
+            System.out.println("c. Salir");
+            System.out.print("Elige una opción: ");
+            option = scanner.next().charAt(0);
+
+            switch (option) {
+                case 'a':
+                    mostrarValores(array12);
+                    break;
+                case 'b':
+                    System.out.print("Introduce el valor (entero): ");
+                    int valor = scanner.nextInt();
+                    System.out.print("Introduce la posición (0-9): ");
+                    int posicion = scanner.nextInt();
+
+                    if (posicion >= 0 && posicion < array12.length) {
+                        array12[posicion] = valor;
+                        System.out.println("Valor introducido correctamente.");
+                    } else {
+                        System.out.println("Posición inválida. Debe estar entre 0 y 9.");
+                    }
+                    break;
+                case 'c':
+                    System.out.println("Saliendo del programa...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Inténtalo de nuevo.");
+            }
+
+        } while (option != 'c');
+        
+    }
+
+    public static void mostrarValores(int[] array12) {
+        System.out.println("Valores en el array:");
+        for (int i = 0; i < array12.length; i++) {
+            System.out.println("Posición " + i + ": " + array12[i]);
+
+        } **/
+    // 13
+    scanner = new Scanner(System.in);
+
+            System.out.print("Introduce el valor inicial (V): ");
+        int vV = scanner.nextInt();
+        
+        System.out.print("Introduce el incremento (I): ");
+        int iI = scanner.nextInt();
+        
+        System.out.print("Introduce el número de valores a crear (N): ");
+        int nN = scanner.nextInt();
+
+        int[] secuencia = new int[nN];
+
+        for (int i = 0; i < secuencia.length; i++) {
+            secuencia[i] = vV + i * iI;
+
+        System.out.println("La secuencia aritmética es:");
+        for (int valor : secuencia) {
+            System.out.print(valor + " ");
+        }
+        System.out.println();
+
+        }
+
+    // 14
+
+    int nN14 = 10;
+        int totalValores = 0;
+
+        for (int i = 1; i <= nN14; i++) {
+            totalValores += i;
+        }
+
+        int[] secuencia14 = new int[totalValores];
+        int index = 0;
+
+        for (int i = 1; i <= nN14; i++) {
+            for (int j = 0; j < i; j++) {
+                secuencia14[index] = i;
+                index++;
+            }
+        }
+
+        System.out.println("La secuencia es:");
+        for (int valor : secuencia14) {
+            System.out.print(valor + " ");
+        }
+        System.out.println();
     }
 
 
 }
+
+
