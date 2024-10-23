@@ -9,7 +9,7 @@ public class Ejercicio4_MDC {
 
     Scanner scanner = new Scanner(System.in);
 
-   /** double [] numeros = new double[10];
+   double [] numeros = new double[10];
 
     System.out.println("Introduce 10 números reales:");
 
@@ -348,9 +348,9 @@ public class Ejercicio4_MDC {
         for (int i = 0; i < array12.length; i++) {
             System.out.println("Posición " + i + ": " + array12[i]);
 
-        } **/
+        }
     // 13
-    scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
 
             System.out.print("Introduce el valor inicial (V): ");
         int vV = scanner.nextInt();
