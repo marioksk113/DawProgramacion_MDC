@@ -90,8 +90,10 @@ public class App {
         scanner = new Scanner(System.in);
         
         System.out.println("Introduce una frase: ");
+
             String frase5 = scanner.nextLine();
             String fraseModificada = frase5.replace(" ", "").toLowerCase();
+            
             if (esPalindromo(fraseModificada)) {
                 System.out.println("La frase es un palíndromo.");
             } else {
@@ -101,6 +103,7 @@ public class App {
 
     public static boolean esPalindromo(String texto) {
         int longitud = texto.length();
+        
         for (int i = 0; i < longitud / 2; i++) {
             if (texto.charAt(i) != texto.charAt(longitud - i - 1)) {
                 return false;
