@@ -9,7 +9,7 @@ public class Ejercicio4_MDC {
 
     Scanner scanner = new Scanner(System.in);
 
-   double [] numeros = new double[10];
+    double [] numeros = new double[10];
 
     System.out.println("Introduce 10 números reales:");
 
@@ -134,7 +134,7 @@ public class Ejercicio4_MDC {
             media = sumamedia / num5.length;
     
     
-        System.out.println("La media es: " + media); 
+        System.out.println("La media es: " + media);
         // 6
 
         scanner = new Scanner(System.in);
