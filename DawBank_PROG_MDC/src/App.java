@@ -67,7 +67,6 @@ public class App {
             }
         }
 
-        scanner.close();
     }
 
     private void mostrarDatosCuenta() {
@@ -80,7 +79,7 @@ public class App {
     private void realizarIngreso() {
         System.out.print("Ingrese la cantidad a depositar: ");
         double cantidad = scanner.nextDouble();
-        scanner.nextLine(); // Limpiar el buffer
+        scanner.nextLine();
         cuenta.ingresar(cantidad);
     }
 

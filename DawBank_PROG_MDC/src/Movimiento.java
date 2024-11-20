@@ -1,5 +1,6 @@
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Movimiento {
     private int id;
@@ -9,7 +10,7 @@ public class Movimiento {
 
     public Movimiento(int id, String tipo, double cantidad) {
         this.id = id;
-        this.fecha = LocalDateTime.now().toString();
+        this.fecha = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         this.tipo = tipo;
         this.cantidad = cantidad;
     }
