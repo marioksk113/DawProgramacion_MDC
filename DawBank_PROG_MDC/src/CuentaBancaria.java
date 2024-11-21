@@ -1,4 +1,3 @@
-
 public class CuentaBancaria {
 
     private static int max_movs = 100;
@@ -35,15 +34,15 @@ public class CuentaBancaria {
         return this.titular;
     }
 
-    public int getTotalMovimientos() {
-        return this.totalMovimientos;
-    }
-
-    public Movimiento[] getMovimientos() {
-         return this.movimientos; }
-
     public double getSaldo() {
         return this.saldo;
+    }
+
+    public void mostrarDatosCuenta() {
+        System.out.println("\n=== DATOS DE LA CUENTA ===");
+        System.out.println("IBAN: " + this.iban);
+        System.out.println("Titular: " + this.titular);
+        System.out.println("Saldo: " + this.saldo + " euros");
     }
 
     public void ingresar(double cantidad) {
@@ -64,7 +63,7 @@ public class CuentaBancaria {
             return;
         }
         if (saldo - cantidad < saldo_minimo) {
-            System.out.println("Error: Saldo insuficiente. No puede ser menor que " + saldo_minimo + " euros.");
+            System.out.println("Error: Saldo negativo. No puede ser menor que " + saldo_minimo + " euros.");
             return;
         }
         saldo -= cantidad;
@@ -77,6 +76,18 @@ public class CuentaBancaria {
         }
     }
 
+    public void mostrarMovimientos() {
+        System.out.println("\n=== HISTORIAL DE MOVIMIENTOS ===");
+        if (totalMovimientos == 0) {
+            System.out.println("No hay movimientos registrados.");
+            return;
+        }
+
+        for (int i = 0; i < totalMovimientos; i++) {
+            System.out.println(movimientos[i].infoMovimientoString());
+        }
+    }
+
     private void registrarMovimiento(String tipo, double cantidad) {
         if (totalMovimientos >= max_movs) {
             System.arraycopy(movimientos, 1, movimientos, 0, max_movs - 1);
@@ -85,7 +96,4 @@ public class CuentaBancaria {
         movimientos[totalMovimientos] = new Movimiento(totalMovimientos + 1, tipo, cantidad);
         totalMovimientos++;
     }
-
-    
 }
-
