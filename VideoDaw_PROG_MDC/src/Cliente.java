@@ -16,7 +16,7 @@ public class Cliente {
     private LocalDate fechaBaja;
     private Pelicula[] peliculasAlquiladas;
 
-    public Cliente(String dni, String nombre, String numSocio, String direccion, LocalDate fechaNacimiento, LocalDate fechaBaja) {
+    public Cliente(String dni, String nombre, String direccion, LocalDate fechaNacimiento) {
         if (!esDniValido(dni)) {
             System.out.println("DNI no válido.");
             return;
@@ -33,7 +33,6 @@ public class Cliente {
         this.contador++;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
-        this.fechaBaja = fechaBaja;
         this.peliculasAlquiladas = new Pelicula[max_peliculas];
     }
 
