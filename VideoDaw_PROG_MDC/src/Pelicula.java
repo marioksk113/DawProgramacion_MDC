@@ -58,12 +58,21 @@ public class Pelicula {
     }
 
     public void mostrarInfoPelicula() {
-        System.out.println("=== Información de la Película ===");
-        System.out.println("Código: " + codigo);
-        System.out.println("Título: " + titulo);
-        System.out.println("Género: " + genero);
-        System.out.println("Fecha de Registro: " + fechaRegistro);
-        System.out.println("Fecha de Baja: " + (fechaBaja != null ? fechaBaja : "No aplica"));
-        System.out.println("¿Alquilada?: " + isAlquilada);
+
+        String info = "";
+        String codi = "";
+        String titul = "";
+        String gener = "";
+        String fechreg = "";
+        String fechbaj = "";
+        String alq = "";
+
+        info = "=== Información de la Película ===";
+        codi = ("Código: " + codigo);
+        titul = ("Título: " + titulo);
+        gener = ("Género: " + genero);
+        fechreg = ("Fecha de Registro: " + fechaRegistro);
+        fechbaj = ("Fecha de Baja: " + (fechaBaja != null ? fechaBaja : "No aplica"));
+        alq = ("¿Alquilada?: " + isAlquilada);
     }
 }
