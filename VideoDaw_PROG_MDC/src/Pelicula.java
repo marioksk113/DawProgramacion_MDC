@@ -57,22 +57,12 @@ public class Pelicula {
         return fechaBaja;
     }
 
-    public void mostrarInfoPelicula() {
-
-        String info = "";
-        String codi = "";
-        String titul = "";
-        String gener = "";
-        String fechreg = "";
-        String fechbaj = "";
-        String alq = "";
-
-        info = "=== Información de la Película ===";
-        codi = ("Código: " + codigo);
-        titul = ("Título: " + titulo);
-        gener = ("Género: " + genero);
-        fechreg = ("Fecha de Registro: " + fechaRegistro);
-        fechbaj = ("Fecha de Baja: " + (fechaBaja != null ? fechaBaja : "No aplica"));
-        alq = ("¿Alquilada?: " + isAlquilada);
+    public String mostrarInfoPelicula() {
+        return "Código: " + codigo + "\n" +
+               "Título: " + titulo + "\n" +
+               "Género: " + genero + "\n" +
+               "Fecha de Registro: " + fechaRegistro + "\n" +
+               "Fecha de Baja: " + (fechaBaja != null ? fechaBaja : "No aplica") + "\n" +
+               "¿Alquilada?: " + isAlquilada;
     }
 }

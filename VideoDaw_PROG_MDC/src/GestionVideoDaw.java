@@ -27,8 +27,8 @@ public class GestionVideoDaw {
             System.out.println("3. Alquilar película");
             System.out.println("4. Devolver película");
             System.out.println("5. Mostrar películas registradas");
-            System.out.println("6. Mostrar clientes registrados");
-            System.out.println("7. Dar de baja cliente");
+            System.out.println("6. Dar de baja cliente");
+            System.out.println("7. Dar de baja película");
             System.out.println("8. Salir");
 
             System.out.print("Selecciona una opción: ");
@@ -56,7 +56,8 @@ public class GestionVideoDaw {
 
                     Genero genero = Genero.values()[generoSeleccionado - 1];
                     Pelicula pelicula = new Pelicula(titulo, genero);
-                    videoClub.registrarPelicula(pelicula);
+                    String mensaje = videoClub.registrarPelicula(pelicula);
+                    System.out.println(mensaje);
                 }
                 case 2 -> {
                     System.out.print("Introduce el DNI del cliente: ");
@@ -72,7 +73,8 @@ public class GestionVideoDaw {
                     LocalDate fechaNacimiento = LocalDate.parse(scanner.nextLine());
 
                     Cliente cliente = new Cliente(dni, nombre, direccionCliente, fechaNacimiento);
-                    videoClub.registrarCliente(cliente);
+                    String mensaje = videoClub.registrarCliente(cliente);
+                    System.out.println(mensaje);
                 }
                 case 3 -> {
                     System.out.print("Introduce el título de la película a alquilar: ");
@@ -81,34 +83,30 @@ public class GestionVideoDaw {
                     System.out.print("Introduce el DNI del cliente que alquila: ");
                     String dni = scanner.nextLine();
 
-                    videoClub.alquilarPelicula(titulo, dni);
+                    String mensaje = videoClub.alquilarPelicula(titulo, dni);
+                    System.out.println(mensaje);
                 }
                 case 4 -> {
                     System.out.print("Introduce el título de la película a devolver: ");
                     String titulo = scanner.nextLine();
 
-                    videoClub.devolverPelicula(titulo);
+                    String mensaje = videoClub.devolverPelicula(titulo);
+                    System.out.println(mensaje);
                 }
                 case 5 -> videoClub.mostrarPeliculasRegistradas();
-                case 6 -> videoClub.mostrarClientesRegistrados();
-                case 7 -> {
+                case 6 -> {
                     System.out.print("Introduce el DNI del cliente a dar de baja: ");
                     String dni = scanner.nextLine();
 
-                    Cliente cliente = null;
-                    for (Cliente c : videoClub.getClientesRegistrados()) {
-                        if (c != null && c.getDni().equals(dni)) {
-                            cliente = c;
-                            break;
-                        }
-                    }
+                    String mensaje = videoClub.darBajaCliente(dni);
+                    System.out.println(mensaje);
+                }
+                case 7 -> {
+                    System.out.print("Introduce el título de la película a dar de baja: ");
+                    String titulo = scanner.nextLine();
 
-                    if (cliente != null) {
-                        videoClub.darBajaCliente(cliente);
-                        System.out.println("Cliente dado de baja con éxito.");
-                    } else {
-                        System.out.println("No se encontró un cliente con ese DNI.");
-                    }
+                    String mensaje = videoClub.darBajaPelicula(titulo);
+                    System.out.println(mensaje);
                 }
                 case 8 -> System.out.println("Saliendo del sistema...");
                 default -> System.out.println("Opción no válida. Inténtalo de nuevo.");

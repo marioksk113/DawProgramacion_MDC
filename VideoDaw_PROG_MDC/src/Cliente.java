@@ -48,22 +48,22 @@ public class Cliente {
         return peliculasAlquiladas;
     }
 
-    public void mostrarInfoCliente() {
-        System.out.println("=== Información del Cliente ===");
-        System.out.println("DNI: " + dni);
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Número de Socio: " + numeroSocio);
-        System.out.println("Dirección: " + direccion);
-        System.out.println("Fecha de Nacimiento: " + fechaNacimiento);
-        System.out.println("Fecha de Baja: " + (fechaBaja != null ? fechaBaja : "Activa"));
+    public String mostrarInfoCliente() {
+        return "DNI: " + dni + "\n" +
+               "Nombre: " + nombre + "\n" +
+               "Número de Socio: " + numeroSocio + "\n" +
+               "Dirección: " + direccion + "\n" +
+               "Fecha de Nacimiento: " + fechaNacimiento + "\n" +
+               "Fecha de Baja: " + (fechaBaja != null ? fechaBaja : "Activa");
     }
 
-    public void mostrarPeliculasAlquiladas() {
-        System.out.println("=== Películas Alquiladas ===");
+    public String mostrarPeliculasAlquiladas() {
+        StringBuilder peliculas = new StringBuilder();
         for (Pelicula pelicula : peliculasAlquiladas) {
             if (pelicula != null) {
-                System.out.println("- " + pelicula.getTitulo());
+                peliculas.append("- ").append(pelicula.getTitulo()).append("\n");
             }
         }
+        return peliculas.toString();
     }
 }
