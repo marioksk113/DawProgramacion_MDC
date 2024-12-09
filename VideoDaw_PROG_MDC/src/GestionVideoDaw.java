@@ -5,6 +5,7 @@ public class GestionVideoDaw {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         VideoDaw videoClub;
+        Utilidades utilidades = new Utilidades();
 
         // Inicializar el videoclub
         System.out.println("=== Bienvenido a VideoDAW ===");
@@ -42,7 +43,7 @@ public class GestionVideoDaw {
             switch (opcion) {
                 case 1 -> {
                     System.out.print("Introduce el título de la película: ");
-                    String titulo = scanner.nextLine().toUpperCase();
+                    String titulo = scanner.nextLine();
 
                     System.out.println("Selecciona el género:");
                     for (Genero genero : Genero.values()) {
@@ -51,8 +52,13 @@ public class GestionVideoDaw {
                     int generoSeleccionado;
                     do {
                         System.out.print("Introduce el número del género: ");
+                        while (!scanner.hasNextInt()) {
+                            System.out.println("Por favor, introduce un número válido.");
+                            scanner.next();
+                        }
                         generoSeleccionado = scanner.nextInt();
                     } while (generoSeleccionado < 1 || generoSeleccionado > Genero.values().length);
+                    scanner.nextLine();
 
                     Genero genero = Genero.values()[generoSeleccionado - 1];
                     Pelicula pelicula = new Pelicula(titulo, genero);
@@ -60,8 +66,14 @@ public class GestionVideoDaw {
                     System.out.println(mensaje);
                 }
                 case 2 -> {
-                    System.out.print("Introduce el DNI del cliente: ");
-                    String dni = scanner.nextLine();
+                    String dni;
+                    do {
+                        System.out.print("Introduce el DNI del cliente (formato: 12345678A): ");
+                        dni = scanner.nextLine();
+                        if (!Utilidades.validarDNI(dni)) {
+                            System.out.println("DNI no válido. Inténtalo de nuevo.");
+                        }
+                    } while (!Utilidades.validarDNI(dni));
 
                     System.out.print("Introduce el nombre del cliente: ");
                     String nombre = scanner.nextLine();
@@ -69,8 +81,16 @@ public class GestionVideoDaw {
                     System.out.print("Introduce la dirección del cliente: ");
                     String direccionCliente = scanner.nextLine();
 
-                    System.out.print("Introduce la fecha de nacimiento (YYYY-MM-DD): ");
-                    LocalDate fechaNacimiento = LocalDate.parse(scanner.nextLine());
+                    LocalDate fechaNacimiento;
+                    String fechaTexto;
+                    do {
+                        System.out.print("Introduce la fecha de nacimiento (YYYY-MM-DD): ");
+                        fechaTexto = scanner.nextLine();
+                        if (!Utilidades.validarFecha(fechaTexto)) {
+                            System.out.println("Formato de fecha no válido. Inténtalo de nuevo.");
+                        }
+                    } while (!Utilidades.validarFecha(fechaTexto));
+                    fechaNacimiento = LocalDate.parse(fechaTexto);
 
                     Cliente cliente = new Cliente(dni, nombre, direccionCliente, fechaNacimiento);
                     String mensaje = videoClub.registrarCliente(cliente);
@@ -93,7 +113,7 @@ public class GestionVideoDaw {
                     String mensaje = videoClub.devolverPelicula(titulo);
                     System.out.println(mensaje);
                 }
-                case 5 -> videoClub.mostrarPeliculasRegistradas();
+                case 5 -> System.out.println(videoClub.mostrarPeliculasRegistradas());
                 case 6 -> {
                     System.out.print("Introduce el DNI del cliente a dar de baja: ");
                     String dni = scanner.nextLine();

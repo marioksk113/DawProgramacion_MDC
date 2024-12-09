@@ -49,11 +49,11 @@ public class VideoDaw {
     public String alquilarPelicula(String titulo, String dni) {
         Cliente cliente = buscarCliente(dni);
         Pelicula pelicula = buscarPelicula(titulo);
-
+    
         if (cliente == null || pelicula == null || pelicula.isAlquilada()) {
             return "No se puede alquilar la película. Verifique los datos.";
         }
-
+    
         pelicula.setAlquilada(true);
         return "Película alquilada con éxito.";
     }
@@ -115,7 +115,7 @@ public class VideoDaw {
         return null;
     }
 
-    private Cliente buscarCliente(String dni) {
+    public Cliente buscarCliente(String dni) {
         for (int i = 0; i < totalClientes; i++) {
             if (clientesRegistrados[i].getDni().equals(dni)) {
                 return clientesRegistrados[i];
@@ -130,10 +130,19 @@ public class VideoDaw {
         System.out.println("Fecha de Alta: " + fechaAlta);
     }
 
-    public void mostrarPeliculasRegistradas() {
-        System.out.println("=== Películas Registradas ===");
-        for (int i = 0; i < totalPeliculas; i++) {
-            peliculasRegistradas[i].mostrarInfoPelicula();
+    public String mostrarPeliculasRegistradas() {
+        if (totalPeliculas == 0) {
+            return "No hay películas registradas en el videoclub.";
         }
+    
+        StringBuilder peliculasInfo = new StringBuilder("=== Películas Registradas ===\n");
+    
+        for (int i = 0; i < totalPeliculas; i++) {
+            Pelicula pelicula = peliculasRegistradas[i];
+            if (pelicula != null) {
+                peliculasInfo.append(pelicula.mostrarInfoPelicula()).append("\n");
+            }
+        }
+        return peliculasInfo.toString();
     }
 }

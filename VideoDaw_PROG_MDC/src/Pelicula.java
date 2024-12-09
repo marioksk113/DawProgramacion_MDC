@@ -58,11 +58,12 @@ public class Pelicula {
     }
 
     public String mostrarInfoPelicula() {
-        return "Código: " + codigo + "\n" +
-               "Título: " + titulo + "\n" +
-               "Género: " + genero + "\n" +
-               "Fecha de Registro: " + fechaRegistro + "\n" +
-               "Fecha de Baja: " + (fechaBaja != null ? fechaBaja : "No aplica") + "\n" +
-               "¿Alquilada?: " + isAlquilada;
-    }
+        return "Código: " + codigo +
+               "\nTítulo: " + titulo +
+               "\nGénero: " + genero +
+               "\nFecha de Registro: " + fechaRegistro +
+               "\nFecha de Baja: " + (fechaBaja != null ? fechaBaja : "No aplica") +
+               "\n¿Alquilada?: " + (isAlquilada ? "Sí" : "No \n");
+               
+    }    
 }
