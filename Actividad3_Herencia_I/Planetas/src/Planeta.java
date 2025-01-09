@@ -1,27 +1,26 @@
 class Planeta extends Astro {
     private double distanciaAlSol;
     private double periodoTraslacion;
-    private Satelite[] satelites;
-    private int numSatelites;
+    private Satelite[] satelites = new Satelite[MAX_SATELITES];
+    private int numSatelites = 0;
     private static final int MAX_SATELITES = 10;
-
-    public Planeta(String nombre, double masa, double diametro, double periodoRotacion, 
-                  double temperaturaMedia, double gravedad, double distanciaAlSol, 
-                  double periodoTraslacion) {
-        super(nombre, masa, diametro, periodoRotacion, temperaturaMedia, gravedad);
+    
+    // Setters para inicializar los valores específicos de Planeta
+    public void setDistanciaAlSol(double distanciaAlSol) {
         this.distanciaAlSol = distanciaAlSol;
-        this.periodoTraslacion = periodoTraslacion;
-        this.satelites = new Satelite[MAX_SATELITES];
-        this.numSatelites = 0;
     }
-
+    
+    public void setPeriodoTraslacion(double periodoTraslacion) {
+        this.periodoTraslacion = periodoTraslacion;
+    }
+    
     public void agregarSatelite(Satelite satelite) {
         if (numSatelites < MAX_SATELITES) {
             satelites[numSatelites] = satelite;
             numSatelites++;
         }
     }
-
+    
     @Override
     public String muestra() {
         StringBuilder info = new StringBuilder();

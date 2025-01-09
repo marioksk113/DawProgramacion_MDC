@@ -1,21 +1,37 @@
 import java.util.Scanner;
 
 class GestorSistemaSolar {
-    private Astro[] astros;
-    private int numAstros;
+    private Astro[] astros = new Astro[MAX_ASTROS];
+    private int numAstros = 0;
     private static final int MAX_ASTROS = 20;
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
 
-    public GestorSistemaSolar() {
-        astros = new Astro[MAX_ASTROS];
-        numAstros = 0;
-        scanner = new Scanner(System.in);
-        inicializarDatosEjemplo();
-    }
+    // Ya no necesitamos constructor, inicializamos los valores en la declaración
 
-    private void inicializarDatosEjemplo() {
-        Planeta tierra = new Planeta("Tierra", 5.972e24, 12742, 1, 15, 9.81, 149.6e6, 365.26);
-        Satelite luna = new Satelite("Luna", 7.349e22, 3474, 27.32, -153, 1.62, 384400, 27.32, tierra);
+    public void inicializarDatos() {
+
+        Planeta tierra = new Planeta();
+        tierra.setNombre("Tierra");
+        tierra.setMasa(5.972e24);
+        tierra.setDiametro(12742);
+        tierra.setPeriodoRotacion(1);
+        tierra.setTemperaturaMedia(15);
+        tierra.setGravedad(9.81);
+        tierra.setDistanciaAlSol(149.6e6);
+        tierra.setPeriodoTraslacion(365.26);
+
+
+        Satelite luna = new Satelite();
+        luna.setNombre("Luna");
+        luna.setMasa(7.349e22);
+        luna.setDiametro(3474);
+        luna.setPeriodoRotacion(27.32);
+        luna.setTemperaturaMedia(-153);
+        luna.setGravedad(1.62);
+        luna.setDistanciaAlPlaneta(384400);
+        luna.setPeriodoOrbital(27.32);
+        luna.setPlanetaPertenece(tierra);
+
         tierra.agregarSatelite(luna);
         agregarAstro(tierra);
         agregarAstro(luna);
@@ -51,9 +67,16 @@ class GestorSistemaSolar {
             return "No se pueden agregar más astros";
         }
 
-        Planeta planeta = new Planeta(nombre, masa, diametro, periodoRotacion, 
-                                    temperaturaMedia, gravedad, distanciaAlSol, 
-                                    periodoTraslacion);
+        Planeta planeta = new Planeta();
+        planeta.setNombre(nombre);
+        planeta.setMasa(masa);
+        planeta.setDiametro(diametro);
+        planeta.setPeriodoRotacion(periodoRotacion);
+        planeta.setTemperaturaMedia(temperaturaMedia);
+        planeta.setGravedad(gravedad);
+        planeta.setDistanciaAlSol(distanciaAlSol);
+        planeta.setPeriodoTraslacion(periodoTraslacion);
+
         agregarAstro(planeta);
         return "Planeta agregado correctamente";
     }
@@ -82,9 +105,17 @@ class GestorSistemaSolar {
             return "Planeta no encontrado";
         }
 
-        Satelite satelite = new Satelite(nombre, masa, diametro, periodoRotacion, 
-                                        temperaturaMedia, gravedad, distanciaAlPlaneta, 
-                                        periodoOrbital, planetaSeleccionado);
+        Satelite satelite = new Satelite();
+        satelite.setNombre(nombre);
+        satelite.setMasa(masa);
+        satelite.setDiametro(diametro);
+        satelite.setPeriodoRotacion(periodoRotacion);
+        satelite.setTemperaturaMedia(temperaturaMedia);
+        satelite.setGravedad(gravedad);
+        satelite.setDistanciaAlPlaneta(distanciaAlPlaneta);
+        satelite.setPeriodoOrbital(periodoOrbital);
+        satelite.setPlanetaPertenece(planetaSeleccionado);
+
         planetaSeleccionado.agregarSatelite(satelite);
         agregarAstro(satelite);
         return "Satélite agregado correctamente";
@@ -105,5 +136,4 @@ class GestorSistemaSolar {
         }
         return lista.toString();
     }
-    
 }

@@ -4,6 +4,7 @@ public class SistemaSolar {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GestorSistemaSolar gestor = new GestorSistemaSolar();
+        gestor.inicializarDatos();
         
         while (true) {
             System.out.println("\n=== SISTEMA SOLAR ===");

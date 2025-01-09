@@ -1,18 +1,21 @@
-
 class Satelite extends Astro {
     private double distanciaAlPlaneta;
     private double periodoOrbital;
     private Planeta planetaPertenece;
-
-    public Satelite(String nombre, double masa, double diametro, double periodoRotacion, 
-                   double temperaturaMedia, double gravedad, double distanciaAlPlaneta, 
-                   double periodoOrbital, Planeta planetaPertenece) {
-        super(nombre, masa, diametro, periodoRotacion, temperaturaMedia, gravedad);
+ 
+    // Setters para inicializar los valores específicos de Satélite
+    public void setDistanciaAlPlaneta(double distanciaAlPlaneta) {
         this.distanciaAlPlaneta = distanciaAlPlaneta;
+    }
+    
+    public void setPeriodoOrbital(double periodoOrbital) {
         this.periodoOrbital = periodoOrbital;
+    }
+    
+    public void setPlanetaPertenece(Planeta planetaPertenece) {
         this.planetaPertenece = planetaPertenece;
     }
-
+ 
     @Override
     public String muestra() {
         StringBuilder info = new StringBuilder();
@@ -27,4 +30,4 @@ class Satelite extends Astro {
         info.append("Planeta al que pertenece: ").append(planetaPertenece.getNombre()).append("\n");
         return info.toString();
     }
-}
+ }

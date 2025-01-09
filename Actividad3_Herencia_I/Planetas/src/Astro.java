@@ -6,17 +6,8 @@ abstract class Astro {
     protected double gravedad;
     protected String nombre;
 
-    public Astro(String nombre, double masa, double diametro, double periodoRotacion, 
-                 double temperaturaMedia, double gravedad) {
-        this.nombre = nombre;
-        this.masa = masa;
-        this.diametro = diametro;
-        this.periodoRotacion = periodoRotacion;
-        this.temperaturaMedia = temperaturaMedia;
-        this.gravedad = gravedad;
-    }
-
     abstract public String muestra();
+
 
     public String getNombre() { return nombre; }
     public double getMasa() { return masa; }
@@ -24,4 +15,11 @@ abstract class Astro {
     public double getPeriodoRotacion() { return periodoRotacion; }
     public double getTemperaturaMedia() { return temperaturaMedia; }
     public double getGravedad() { return gravedad; }
+
+    protected void setNombre(String nombre) { this.nombre = nombre; }
+    protected void setMasa(double masa) { this.masa = masa; }
+    protected void setDiametro(double diametro) { this.diametro = diametro; }
+    protected void setPeriodoRotacion(double periodoRotacion) { this.periodoRotacion = periodoRotacion; }
+    protected void setTemperaturaMedia(double temperaturaMedia) { this.temperaturaMedia = temperaturaMedia; }
+    protected void setGravedad(double gravedad) { this.gravedad = gravedad; }
 }
