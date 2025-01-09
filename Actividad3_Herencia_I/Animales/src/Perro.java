@@ -1,37 +1,24 @@
-class Perro extends Mascotas {
+public class Perro extends Mascotas {
     private String raza;
-    private int pulgas;
+    private boolean pulgas;
     
-    public Perro(String nombre, int edad, String estado, String fechaNacimiento, 
-                 String raza, int pulgas) {
-        super(nombre, edad, estado, fechaNacimiento);
+    public Perro(String nombre, int edad, String fechaNacimiento, String raza, boolean pulgas) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.estado = "vivo";
+        this.fechaNacimiento = fechaNacimiento;
         this.raza = raza;
         this.pulgas = pulgas;
     }
     
+    @Override
     public String muestra() {
-        return "Perro - Nombre: " + nombre + ", Raza: " + raza;
+        return "Perro - Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + 
+               ", Estado: " + estado + ", Pulgas: " + (pulgas ? "Sí" : "No");
     }
     
-    public void cumpleanios() {
-        edad++;
-    }
-    
-    public void morir() {
-        estado = "Fallecido";
-    }
-    
+    @Override
     public String habla() {
         return "¡Guau guau!";
-    }
-    
-    public String mostrarDetalles() {
-        return "PERRO:\n" +
-               "Nombre: " + nombre + "\n" +
-               "Edad: " + edad + "\n" +
-               "Estado: " + estado + "\n" +
-               "Fecha de nacimiento: " + fechaNacimiento + "\n" +
-               "Raza: " + raza + "\n" +
-               "Pulgas: " + pulgas;
     }
 }

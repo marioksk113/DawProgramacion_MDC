@@ -1,37 +1,24 @@
-class Gato extends Mascotas {
+public class Gato extends Mascotas {
     private String color;
-    private String peloLargo;
+    private boolean peloLargo;
     
-    public Gato(String nombre, int edad, String estado, String fechaNacimiento, 
-                String color, String peloLargo) {
-        super(nombre, edad, estado, fechaNacimiento);
+    public Gato(String nombre, int edad, String fechaNacimiento, String color, boolean peloLargo) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.estado = "vivo";
+        this.fechaNacimiento = fechaNacimiento;
         this.color = color;
         this.peloLargo = peloLargo;
     }
     
+    @Override
     public String muestra() {
-        return "Gato - Nombre: " + nombre + ", Color: " + color;
+        return "Gato - Nombre: " + nombre + ", Color: " + color + ", Edad: " + edad + 
+               ", Estado: " + estado + ", Pelo largo: " + (peloLargo ? "Sí" : "No");
     }
     
-    public void cumpleanios() {
-        edad++;
-    }
-    
-    public void morir() {
-        estado = "Fallecido";
-    }
-    
+    @Override
     public String habla() {
         return "¡Miau miau!";
-    }
-    
-    public String mostrarDetalles() {
-        return "GATO:\n" +
-               "Nombre: " + nombre + "\n" +
-               "Edad: " + edad + "\n" +
-               "Estado: " + estado + "\n" +
-               "Fecha de nacimiento: " + fechaNacimiento + "\n" +
-               "Color: " + color + "\n" +
-               "Pelo largo: " + peloLargo;
     }
 }

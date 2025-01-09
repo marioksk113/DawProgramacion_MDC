@@ -1,51 +1,35 @@
-class Loro extends Aves {
+public class Loro extends Aves {
     private String origen;
     private String habla;
     
-    public Loro(String nombre, int edad, String estado, String fechaNacimiento,
-                String pico, boolean vuela, String origen, String habla) {
-        super(nombre, edad, estado, fechaNacimiento, pico, vuela);
+    public Loro(String nombre, int edad, String fechaNacimiento, String origen, String habla) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.estado = "vivo";
+        this.fechaNacimiento = fechaNacimiento;
         this.origen = origen;
         this.habla = habla;
+        this.pico = "curvo";
+        this.vuela = true;
     }
     
+    @Override
     public String muestra() {
-        return "Loro - Nombre: " + nombre + ", Origen: " + origen;
+        return "Loro - Nombre: " + nombre + ", Origen: " + origen + ", Edad: " + edad + 
+               ", Estado: " + estado;
     }
     
-    public void cumpleanios() {
-        edad++;
-    }
-    
-    public void morir() {
-        estado = "Fallecido";
-    }
-    
+    @Override
     public String habla() {
         return habla;
     }
     
+    public String saluda() {
+        return "¡Hola, soy un loro!";
+    }
+    
+    @Override
     public String volar() {
-        if (vuela) {
-            return "¡El loro está volando!";
-        } else {
-            return "Este loro no puede volar.";
-        }
-    }
-    
-    public String saludar() {
-        return "¡Hola! ¿Cómo estás?";
-    }
-    
-    public String mostrarDetalles() {
-        return "LORO:\n" +
-               "Nombre: " + nombre + "\n" +
-               "Edad: " + edad + "\n" +
-               "Estado: " + estado + "\n" +
-               "Fecha de nacimiento: " + fechaNacimiento + "\n" +
-               "Pico: " + pico + "\n" +
-               "Vuela: " + (vuela ? "Sí" : "No") + "\n" +
-               "Origen: " + origen + "\n" +
-               "Habla: " + habla;
+        return "El loro " + nombre + " está volando";
     }
 }

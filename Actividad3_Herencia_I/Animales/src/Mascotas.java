@@ -1,33 +1,51 @@
-abstract class Mascotas {
+public abstract class Mascotas {
     protected String nombre;
     protected int edad;
     protected String estado;
     protected String fechaNacimiento;
     
-    public Mascotas(String nombre, int edad, String estado, String fechaNacimiento) {
+    public String getNombre() {
+        return this.nombre;
+    }
+    
+    public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public int getEdad() {
+        return this.edad;
+    }
+    
+    public void setEdad(int edad) {
         this.edad = edad;
+    }
+    
+    public String getEstado() {
+        return this.estado;
+    }
+    
+    public void setEstado(String estado) {
         this.estado = estado;
+    }
+    
+    public String getFechaNacimiento() {
+        return this.fechaNacimiento;
+    }
+    
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
     
-    abstract String muestra();
-    abstract void cumpleanios();
-    abstract void morir();
-    abstract String habla();
-}
-
-// Clase abstracta Aves
-abstract class Aves extends Mascotas {
-    protected String pico;
-    protected boolean vuela;
+    public abstract String muestra();
+    public abstract String habla();
     
-    public Aves(String nombre, int edad, String estado, String fechaNacimiento, 
-                String pico, boolean vuela) {
-        super(nombre, edad, estado, fechaNacimiento);
-        this.pico = pico;
-        this.vuela = vuela;
+    public String cumpleaños() {
+        edad++;
+        return "Feliz cumpleaños número " + edad;
     }
     
-    abstract String volar();
+    public String morir() {
+        estado = "fallecido";
+        return "La mascota ha fallecido";
+    }
 }

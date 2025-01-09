@@ -1,24 +1,27 @@
 public class Principal {
     public static void main(String[] args) {
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
         Inventario inventario = new Inventario();
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
         int opcion;
+        String resultado;
         
         do {
             System.out.println("\n=== MENÚ TIENDA DE MASCOTAS ===");
             System.out.println("1. Mostrar lista de animales");
-            System.out.println("2. Mostrar datos de un animal");
-            System.out.println("3. Mostrar todos los animales");
-            System.out.println("4. Insertar animal");
+            System.out.println("2. Mostrar datos de un animal específico");
+            System.out.println("3. Mostrar datos de todos los animales");
+            System.out.println("4. Insertar nuevo animal");
             System.out.println("5. Eliminar animal");
             System.out.println("6. Vaciar inventario");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             
             opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpiar buffer
             
-            switch (opcion) {
+            switch(opcion) {
                 case 1:
+                    System.out.println("\nLista de animales:");
                     System.out.println(inventario.mostrarListaAnimales());
                     break;
                     
@@ -29,6 +32,7 @@ public class Principal {
                     break;
                     
                 case 3:
+                    System.out.println("\nDatos de todos los animales:");
                     System.out.println(inventario.mostrarTodosAnimales());
                     break;
                     
@@ -38,6 +42,7 @@ public class Principal {
                     System.out.println("2. Gato");
                     System.out.println("3. Loro");
                     System.out.println("4. Canario");
+                    System.out.print("Seleccione tipo: ");
                     int tipo = scanner.nextInt();
                     scanner.nextLine(); // Limpiar buffer
                     
@@ -46,74 +51,101 @@ public class Principal {
                     System.out.print("Edad: ");
                     int edad = scanner.nextInt();
                     scanner.nextLine(); // Limpiar buffer
-                    System.out.print("Estado: ");
-                    String estado = scanner.nextLine();
-                    System.out.print("Fecha de nacimiento: ");
+                    System.out.print("Fecha Nacimiento (YYYY-MM-DD): ");
                     String fechaNacimiento = scanner.nextLine();
                     
-                    switch (tipo) {
+                    Mascotas nuevoAnimal = null;
+                    
+                    switch(tipo) {
                         case 1:
                             System.out.print("Raza: ");
                             String raza = scanner.nextLine();
-                            System.out.print("Número de pulgas: ");
-                            int pulgas = scanner.nextInt();
-                            inventario.insertarAnimal(new Perro(nombre, edad, estado, fechaNacimiento, raza, pulgas));
+                            boolean pulgas = false;
+                            String respuestaPulgas;
+                            do {
+                                System.out.print("¿Tiene pulgas? (true/false): ");
+                                respuestaPulgas = scanner.nextLine().toLowerCase();
+                                if(respuestaPulgas.equals("true") || respuestaPulgas.equals("false")) {
+                                    pulgas = Boolean.parseBoolean(respuestaPulgas);
+                                } else {
+                                    System.out.println("Por favor, introduce solo 'true' o 'false'");
+                                }
+                            } while(!respuestaPulgas.equals("true") && !respuestaPulgas.equals("false"));
+                            
+                            nuevoAnimal = new Perro(nombre, edad, fechaNacimiento, raza, pulgas);
                             break;
                             
                         case 2:
                             System.out.print("Color: ");
                             String colorGato = scanner.nextLine();
-                            System.out.print("Pelo largo (Si/No): ");
-                            String peloLargo = scanner.nextLine();
-                            inventario.insertarAnimal(new Gato(nombre, edad, estado, fechaNacimiento, colorGato, peloLargo));
+                            boolean peloLargo = false;
+                            String respuestaPelo;
+                            do {
+                                System.out.print("¿Tiene pelo largo? (true/false): ");
+                                respuestaPelo = scanner.nextLine().toLowerCase();
+                                if(respuestaPelo.equals("true") || respuestaPelo.equals("false")) {
+                                    peloLargo = Boolean.parseBoolean(respuestaPelo);
+                                } else {
+                                    System.out.println("Por favor, introduce solo 'true' o 'false'");
+                                }
+                            } while(!respuestaPelo.equals("true") && !respuestaPelo.equals("false"));
+                            
+                            nuevoAnimal = new Gato(nombre, edad, fechaNacimiento, colorGato, peloLargo);
                             break;
                             
                         case 3:
-                            System.out.print("Tipo de pico: ");
-                            String picoLoro = scanner.nextLine();
-                            System.out.print("¿Puede volar? (true/false): ");
-                            boolean vuelaLoro = scanner.nextBoolean();
-                            scanner.nextLine(); // Limpiar buffer
                             System.out.print("Origen: ");
                             String origen = scanner.nextLine();
-                            System.out.print("Qué habla: ");
-                            String hablaLoro = scanner.nextLine();
-                            inventario.insertarAnimal(new Loro(nombre, edad, estado, fechaNacimiento, picoLoro, vuelaLoro, origen, hablaLoro));
+                            System.out.print("Frase que habla: ");
+                            String habla = scanner.nextLine();
+                            nuevoAnimal = new Loro(nombre, edad, fechaNacimiento, origen, habla);
                             break;
                             
                         case 4:
-                            System.out.print("Tipo de pico: ");
-                            String picoCanario = scanner.nextLine();
-                            System.out.print("¿Puede volar? (true/false): ");
-                            boolean vuelaCanario = scanner.nextBoolean();
-                            scanner.nextLine(); // Limpiar buffer
                             System.out.print("Color: ");
                             String colorCanario = scanner.nextLine();
-                            System.out.print("Canto: ");
-                            String canta = scanner.nextLine();
-                            inventario.insertarAnimal(new Canario(nombre, edad, estado, fechaNacimiento, picoCanario, vuelaCanario, colorCanario, canta));
+                            boolean canta = false;
+                            String respuestaCanta;
+                            do {
+                                System.out.print("¿Canta? (true/false): ");
+                                respuestaCanta = scanner.nextLine().toLowerCase();
+                                if(respuestaCanta.equals("true") || respuestaCanta.equals("false")) {
+                                    canta = Boolean.parseBoolean(respuestaCanta);
+                                } else {
+                                    System.out.println("Por favor, introduce solo 'true' o 'false'");
+                                }
+                            } while(!respuestaCanta.equals("true") && !respuestaCanta.equals("false"));
+                            
+                            nuevoAnimal = new Canario(nombre, edad, fechaNacimiento, colorCanario, canta);
                             break;
                     }
-                    System.out.println("Animal insertado con éxito.");
+                    
+                    if(nuevoAnimal != null) {
+                        System.out.println(inventario.insertarAnimal(nuevoAnimal));
+                    }
                     break;
                     
                 case 5:
                     System.out.print("Ingrese el índice del animal a eliminar: ");
                     int indiceEliminar = scanner.nextInt();
-                    if (inventario.eliminarAnimal(indiceEliminar)) {
-                        System.out.println("Animal eliminado con éxito.");
-                    } else {
-                        System.out.println("No se pudo eliminar el animal.");
-                    }
+                    System.out.println(inventario.eliminarAnimal(indiceEliminar));
                     break;
                     
                 case 6:
-                    inventario.vaciarInventario();
-                    System.out.println("Inventario vaciado con éxito.");
+                    System.out.println(inventario.vaciarInventario());
+                    break;
+                    
+                case 0:
+                    System.out.println("¡Hasta luego!");
+                    break;
+                    
+                default:
+                    System.out.println("Opción no válida");
                     break;
             }
-        } while (opcion != 0);
+            
+        } while(opcion != 0);
         
-        System.out.println("¡Gracias por usar el sistema!");
+        scanner.close();
     }
 }

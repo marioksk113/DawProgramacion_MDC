@@ -1,46 +1,31 @@
-class Canario extends Aves {
+public class Canario extends Aves {
     private String color;
-    private String canta;
+    private boolean canta;
     
-    public Canario(String nombre, int edad, String estado, String fechaNacimiento,
-                   String pico, boolean vuela, String color, String canta) {
-        super(nombre, edad, estado, fechaNacimiento, pico, vuela);
+    public Canario(String nombre, int edad, String fechaNacimiento, String color, boolean canta) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.estado = "vivo";
+        this.fechaNacimiento = fechaNacimiento;
         this.color = color;
         this.canta = canta;
+        this.pico = "pequeño";
+        this.vuela = true;
     }
     
+    @Override
     public String muestra() {
-        return "Canario - Nombre: " + nombre + ", Color: " + color;
+        return "Canario - Nombre: " + nombre + ", Color: " + color + ", Edad: " + edad + 
+               ", Estado: " + estado + ", Canta: " + (canta ? "Sí" : "No");
     }
     
-    public void cumpleanios() {
-        edad++;
-    }
-    
-    public void morir() {
-        estado = "Fallecido";
-    }
-    
+    @Override
     public String habla() {
-        return canta;
+        return "¡Pío pío!";
     }
     
+    @Override
     public String volar() {
-        if (vuela) {
-            return "¡El canario está volando!";
-        } else {
-            return "Este canario no puede volar.";
-        }
-    }
-    public String mostrarDetalles() {
-        return "CANARIO:\n" +
-               "Nombre: " + nombre + "\n" +
-               "Edad: " + edad + "\n" +
-               "Estado: " + estado + "\n" +
-               "Fecha de nacimiento: " + fechaNacimiento + "\n" +
-               "Pico: " + pico + "\n" +
-               "Vuela: " + (vuela ? "Sí" : "No") + "\n" +
-               "Color: " + color + "\n" +
-               "Canta: " + canta;
+        return "El canario " + nombre + " está volando";
     }
 }

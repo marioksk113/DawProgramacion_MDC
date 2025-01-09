@@ -1,7 +1,7 @@
-class Inventario {
+public class Inventario {
     private Mascotas[] animales;
     private int numAnimales;
-    private static final int MAX_ANIMALES = 100;
+    private final int MAX_ANIMALES = 100;
     
     public Inventario() {
         animales = new Mascotas[MAX_ANIMALES];
@@ -9,75 +9,63 @@ class Inventario {
     }
     
     public String mostrarListaAnimales() {
-        if (numAnimales == 0) {
-            return "No hay animales en el inventario.";
-        }
-        
         StringBuilder lista = new StringBuilder();
-        for (int i = 0; i < numAnimales; i++) {
-            lista.append(animales[i].muestra()).append("\n");
+        for(int i = 0; i < numAnimales; i++) {
+            lista.append(i).append(". ")
+                .append(animales[i].getClass().getSimpleName())
+                .append(" - ")
+                .append(animales[i].nombre)
+                .append("\n");
         }
         return lista.toString();
     }
     
-    public String mostrarAnimal(int index) {
-        if (index >= 0 && index < numAnimales) {
-            Mascotas animal = animales[index];
-            if (animal instanceof Perro) {
-                Perro perro = (Perro) animal;
-                return perro.mostrarDetalles();
-            } else if (animal instanceof Gato) {
-                Gato gato = (Gato) animal;
-                return gato.mostrarDetalles();
-            } else if (animal instanceof Loro) {
-                Loro loro = (Loro) animal;
-                return loro.mostrarDetalles();
-            } else if (animal instanceof Canario) {
-                Canario canario = (Canario) animal;
-                return canario.mostrarDetalles();
-            }
+    public String mostrarAnimal(int indice) {
+        if(indice >= 0 && indice < numAnimales) {
+            return animales[indice].muestra();
         }
         return "Índice no válido";
     }
     
     public String mostrarTodosAnimales() {
-        if (numAnimales == 0) {
-            return "No hay animales en el inventario.";
+        if(numAnimales == 0) {
+            return "No hay animales en el inventario";
         }
-        
         StringBuilder todos = new StringBuilder();
-        for (int i = 0; i < numAnimales; i++) {
-            todos.append("\nAnimal #").append(i+1).append("\n");
-            todos.append(mostrarAnimal(i)).append("\n");
+        for(int i = 0; i < numAnimales; i++) {
+            todos.append(i).append(". ")
+                .append(animales[i].muestra())
+                .append("\n");
         }
         return todos.toString();
     }
     
-    public boolean insertarAnimal(Mascotas animal) {
-        if (numAnimales < MAX_ANIMALES) {
+    public String insertarAnimal(Mascotas animal) {
+        if(numAnimales < MAX_ANIMALES) {
             animales[numAnimales] = animal;
             numAnimales++;
-            return true;
+            return "Animal añadido correctamente";
         }
-        return false;
+        return "Inventario lleno";
     }
     
-    public boolean eliminarAnimal(int index) {
-        if (index >= 0 && index < numAnimales) {
-            for (int i = index; i < numAnimales - 1; i++) {
+    public String eliminarAnimal(int indice) {
+        if(indice >= 0 && indice < numAnimales) {
+            for(int i = indice; i < numAnimales - 1; i++) {
                 animales[i] = animales[i + 1];
             }
             animales[numAnimales - 1] = null;
             numAnimales--;
-            return true;
+            return "Animal eliminado correctamente";
         }
-        return false;
+        return "Índice no válido";
     }
     
-    public void vaciarInventario() {
-        for (int i = 0; i < numAnimales; i++) {
+    public String vaciarInventario() {
+        for(int i = 0; i < numAnimales; i++) {
             animales[i] = null;
         }
         numAnimales = 0;
+        return "Inventario vaciado";
     }
 }
