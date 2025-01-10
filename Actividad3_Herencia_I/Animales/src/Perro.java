@@ -13,8 +13,15 @@ public class Perro extends Mascotas {
     
     @Override
     public String muestra() {
-        return "Perro - Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + 
-               ", Estado: " + estado + ", Pulgas: " + (pulgas ? "Sí" : "No");
+    String tienePulgas;
+    if (pulgas) {
+        tienePulgas = "Sí";
+    } else {
+        tienePulgas = "No";
+    }
+    
+    return "Perro - Nombre: " + nombre + ", Raza: " + raza + ", Edad: " + edad + 
+           ", Estado: " + estado + ", Pulgas: " + tienePulgas;
     }
     
     @Override

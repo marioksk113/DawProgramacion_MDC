@@ -15,10 +15,16 @@ public class Canario extends Aves {
     
     @Override
     public String muestra() {
-        return "Canario - Nombre: " + nombre + ", Color: " + color + ", Edad: " + edad + 
-               ", Estado: " + estado + ", Canta: " + (canta ? "Sí" : "No");
+    String cantoEstado;
+    if (canta) {
+        cantoEstado = "Sí";
+    } else {
+        cantoEstado = "No";
     }
     
+    return "Canario - Nombre: " + nombre + ", Color: " + color + ", Edad: " + edad + 
+           ", Estado: " + estado + ", Canta: " + cantoEstado;
+    }
     @Override
     public String habla() {
         return "¡Pío pío!";

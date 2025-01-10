@@ -13,8 +13,15 @@ public class Gato extends Mascotas {
     
     @Override
     public String muestra() {
-        return "Gato - Nombre: " + nombre + ", Color: " + color + ", Edad: " + edad + 
-               ", Estado: " + estado + ", Pelo largo: " + (peloLargo ? "Sí" : "No");
+    String tipoPelo;
+    if (peloLargo) {
+        tipoPelo = "Sí";
+    } else {
+        tipoPelo = "No";
+    }
+    
+    return "Gato - Nombre: " + nombre + ", Color: " + color + ", Edad: " + edad + 
+           ", Estado: " + estado + ", Pelo largo: " + tipoPelo;
     }
     
     @Override
