@@ -3,13 +3,11 @@ class Agenda {
     private int numContactos;
     private final int MAX_CONTACTOS = 100;
     
-    // Constructor
     public Agenda() {
         contactos = new Contacto[MAX_CONTACTOS];
         numContactos = 0;
     }
     
-    // Añadir contacto
     public boolean añadirContacto(Contacto c) {
         if(numContactos >= MAX_CONTACTOS || existeContacto(c.getNombre())) {
             return false;
@@ -20,14 +18,12 @@ class Agenda {
         return true;
     }
     
-    // Eliminar contacto
     public boolean eliminarContacto(String nombre) {
         int pos = buscaContacto(nombre);
         if(pos < 0) {
             return false;
         }
         
-        // Desplazar elementos
         for(int i = pos; i < numContactos - 1; i++) {
             contactos[i] = contactos[i + 1];
         }
@@ -37,12 +33,10 @@ class Agenda {
         return true;
     }
     
-    // Verificar si existe contacto
     public boolean existeContacto(String nombre) {
         return buscaContacto(nombre) >= 0;
     }
     
-    // Listar contactos
     public String listarContactos() {
         if(numContactos == 0) {
             return "No hay contactos en la agenda";
@@ -55,7 +49,6 @@ class Agenda {
         return lista.toString();
     }
     
-    // Buscar contacto
     public int buscaContacto(String nombre) {
         for(int i = 0; i < numContactos; i++) {
             if(contactos[i].getNombre().equals(nombre)) {
@@ -65,7 +58,6 @@ class Agenda {
         return -1;
     }
     
-    // Método  para obtener el número de contactos
     public int getNumContactos() {
         return numContactos;
     }

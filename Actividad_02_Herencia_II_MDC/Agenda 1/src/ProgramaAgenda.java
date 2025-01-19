@@ -8,7 +8,6 @@ class ProgramaAgenda {
         String nombre, telefono;
         
         do {
-            // Mostrar menú
             System.out.println("\n=== AGENDA DE CONTACTOS ===");
             System.out.println("1. Añadir contacto");
             System.out.println("2. Eliminar contacto");
@@ -82,6 +81,5 @@ class ProgramaAgenda {
             }
             
         } while(opcion != 6);
-
     }
 }
