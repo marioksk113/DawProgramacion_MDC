@@ -1,6 +1,7 @@
 abstract class Contacto {
     protected String nombre;
     protected String telefono;
-
-    public String getNombre() { return nombre; }
+    
+    public abstract String getNombre();
+    public abstract String getTelefono();
 }

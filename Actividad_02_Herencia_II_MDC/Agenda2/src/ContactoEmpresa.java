@@ -7,10 +7,12 @@ class ContactoEmpresa extends Contacto {
         this.paginaWeb = paginaWeb;
     }
     
+    @Override
     public String getNombre() {
         return nombre;
     }
     
+    @Override
     public String getTelefono() {
         return telefono;
     }

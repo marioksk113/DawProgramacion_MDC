@@ -8,9 +8,18 @@ class ContactoPersona extends Contacto {
     }
     
     @Override
-    public String getNombre() { return nombre; }
-    public String getTelefono() { return telefono; }
-    public String getCumpleaños() { return cumpleaños; }
+    public String getNombre() {
+        return nombre;
+    }
+    
+    @Override
+    public String getTelefono() {
+        return telefono;
+    }
+    
+    public String getCumpleaños() {
+        return cumpleaños;
+    }
     
     @Override
     public String toString() {

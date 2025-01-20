@@ -37,14 +37,39 @@ class Agenda {
     }
     
     public String listarContactos() {
+        return listarContactos(3);
+    }
+    
+    public String listarContactos(int tipo) {
         if(numContactos == 0) {
             return "No hay contactos en la agenda";
         }
         
         StringBuilder lista = new StringBuilder();
         for(int i = 0; i < numContactos; i++) {
-            lista.append(contactos[i].toString()).append("\n");
+            boolean incluir = false;
+            
+            switch(tipo) {
+                case 1: // Solo personas
+                    incluir = contactos[i] instanceof ContactoPersona;
+                    break;
+                case 2: // Solo empresas
+                    incluir = contactos[i] instanceof ContactoEmpresa;
+                    break;
+                case 3: // Todos
+                    incluir = true;
+                    break;
+            }
+            
+            if(incluir) {
+                lista.append(contactos[i].toString()).append("\n");
+            }
         }
+        
+        if(lista.length() == 0) {
+            return "No hay contactos del tipo seleccionado";
+        }
+        
         return lista.toString();
     }
     
@@ -57,7 +82,10 @@ class Agenda {
         return -1;
     }
     
-    public int getNumContactos() {
-        return numContactos;
+    public Contacto getContacto(int posicion) {
+        if(posicion >= 0 && posicion < numContactos) {
+            return contactos[posicion];
+        }
+        return null;
     }
 }
