@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Scanner;
 
 public class App {
@@ -27,27 +28,37 @@ public class App {
                 case 1:
                     System.out.print("Ingrese la matrícula del coche: ");
                     String matricula = scanner.nextLine();
-                    
                     System.out.print("Ingrese la marca del coche: ");
                     String marca = scanner.nextLine();
-                    
                     System.out.print("Ingrese el color del coche: ");
                     String color = scanner.nextLine();
                     
-                    taller.añadirCoche(matricula, marca, color);
+                    String resultadoAñadir = taller.añadirCoche(matricula, marca, color);
+                    System.out.println(resultadoAñadir);
                     break;
+
                 case 2:
                     System.out.print("Ingrese la matrícula del coche a eliminar: ");
                     String matriculaEliminar = scanner.nextLine();
-                    taller.eliminarCoche(matriculaEliminar);
+                    String resultadoEliminar = taller.eliminarCoche(matriculaEliminar);
+                    System.out.println(resultadoEliminar);
                     break;
+
                 case 3:
-                    System.out.println("\nVisualizando matrículas:");
-                    taller.visualizarMatriculas();
-                    System.out.println("\nVisualizando coches:");
-                    taller.visualizarCoches();
-                    System.out.println("\nVisualizando taller completo:");
-                    taller.visualizarTaller();
+                    System.out.println("\nMatrículas registradas:");
+                    for (Map.Entry<String, String> entry : taller.visualizarMatriculas().entrySet()) {
+                        System.out.println(entry.getKey());
+                    }
+                    
+                    System.out.println("\nDatos de los coches:");
+                    for (Map.Entry<String, String> entry : taller.visualizarCoches().entrySet()) {
+                        System.out.println("Marca: " + entry.getKey() + ", Color: " + entry.getValue());
+                    }
+                    
+                    System.out.println("\nDatos completos del taller:");
+                    for (Map.Entry<String, String> entry : taller.visualizarTaller().entrySet()) {
+                        System.out.println("Matrícula: " + entry.getKey() + " -> " + entry.getValue());
+                    }
                     break;
             }
         } while (opcion != 3);
