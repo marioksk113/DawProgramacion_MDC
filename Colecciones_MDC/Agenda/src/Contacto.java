@@ -37,7 +37,7 @@ class Contacto {
 
     public String getCorreo() {
         return correo;
-    }
+    }                                                   
 
     public void setCorreo(String correo) {
         if (validar(3, correo)) {
@@ -58,6 +58,5 @@ class Contacto {
                 return false;
         }
     }
-
 
 }

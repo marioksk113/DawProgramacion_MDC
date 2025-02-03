@@ -36,6 +36,7 @@ public class App {
                     int resultado = agenda.añadirContacto(nombre, telefono, correo);
                     switch(resultado) {
                         case 0:
+                        
                             System.out.println("Contacto añadido correctamente");
                             break;
                         case 1:
