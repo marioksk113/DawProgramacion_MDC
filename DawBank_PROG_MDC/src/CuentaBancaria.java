@@ -4,7 +4,7 @@ public class CuentaBancaria {
     private static double saldo_minimo = -50;
     private static double limite_hacienda = 3000;
 
-    private String iban;
+    private String numeroCuenta;
     private String titular;
     private double saldo;
     private Movimiento[] movimientos;
@@ -19,15 +19,15 @@ public class CuentaBancaria {
             System.out.println("Error: El titular no puede estar vacío.");
             return;
         }
-        this.iban = iban;
+        this.numeroCuenta = iban;
         this.titular = titular;
         this.saldo = 0.0000000;
         this.movimientos = new Movimiento[max_movs];
         this.totalMovimientos = 0;
     }
 
-    public String getIban() {
-        return this.iban;
+    public String getNumeroCuenta() {
+        return this.numeroCuenta;
     }
 
     public String getTitular() {
@@ -40,7 +40,7 @@ public class CuentaBancaria {
 
     public void mostrarDatosCuenta() {
         System.out.println("\n=== DATOS DE LA CUENTA ===");
-        System.out.println("IBAN: " + this.iban);
+        System.out.println("IBAN: " + this.numeroCuenta);
         System.out.println("Titular: " + this.titular);
         System.out.println("Saldo: " + this.saldo + " euros");
     }
