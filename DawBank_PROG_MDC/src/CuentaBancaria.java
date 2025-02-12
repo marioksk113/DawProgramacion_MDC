@@ -1,4 +1,4 @@
-public class CuentaBancaria {
+public class CuentaBancaria implements DOCUMENTO_REFACTOR {
 
     private static int max_movs = 100;
     private static double saldo_minimo = -50;
@@ -10,8 +10,8 @@ public class CuentaBancaria {
     private Movimiento[] movimientos;
     private int totalMovimientos;
 
-    public CuentaBancaria(String iban, String titular) {
-        if (!iban.matches("^[A-Z]{2}[0-9]{22}$")) {
+    public CuentaBancaria(String numeroCuenta, String titular) {
+        if (!numeroCuenta.matches("^[A-Z]{2}[0-9]{22}$")) {
             System.out.println("Error: IBAN no válido. Debe seguir el formato dos letras seguidas de 22 números.");
             return;
         }
@@ -19,7 +19,7 @@ public class CuentaBancaria {
             System.out.println("Error: El titular no puede estar vacío.");
             return;
         }
-        this.numeroCuenta = iban;
+        this.numeroCuenta = numeroCuenta;
         this.titular = titular;
         this.saldo = 0.0000000;
         this.movimientos = new Movimiento[max_movs];
@@ -76,7 +76,8 @@ public class CuentaBancaria {
         }
     }
 
-    public void mostrarMovimientos() {
+    @Override
+	public void mostrarMovimientos() {
         System.out.println("\n=== HISTORIAL DE MOVIMIENTOS ===");
         if (totalMovimientos == 0) {
             System.out.println("No hay movimientos registrados.");
@@ -88,12 +89,12 @@ public class CuentaBancaria {
         }
     }
 
-    private void registrarMovimiento(String tipo, double cantidad) {
-        if (totalMovimientos >= max_movs) {
-            System.arraycopy(movimientos, 1, movimientos, 0, max_movs - 1);
-            totalMovimientos--;
-        }
-        movimientos[totalMovimientos] = new Movimiento(totalMovimientos + 1, tipo, cantidad);
-        totalMovimientos++;
-    }
-}
+	    private void registrarMovimiento(String tipo, double cantidad) {
+	        if (totalMovimientos >= max_movs) {
+	            System.arraycopy(movimientos, 1, movimientos, 0, max_movs - 1);
+	            totalMovimientos--;
+	        }
+	        movimientos[totalMovimientos] = new Movimiento(totalMovimientos + 1, tipo, cantidad);
+	        totalMovimientos++;
+	    }
+	}
