@@ -12,7 +12,11 @@ public class App {
 
         cuenta = new CuentaBancaria(iban, titular);
 
+<<<<<<< HEAD
+        if (cuenta.getNumerocuenta() == null || cuenta.getTitular() == null) {
+=======
         if (cuenta.getNumeroCuenta() == null || cuenta.getTitular() == null) {
+>>>>>>> 127d3f7e1d555505177c53819bcbf68334b7bb0e
             System.out.println("No se pudo crear la cuenta. Verifique los datos ingresados.");
             return;
         }
@@ -37,7 +41,11 @@ public class App {
                     cuenta.mostrarDatosCuenta();
                     break;
                 case 2:
+<<<<<<< HEAD
+                    System.out.println("IBAN: " + cuenta.getNumerocuenta());
+=======
                     System.out.println("IBAN: " + cuenta.getNumeroCuenta());
+>>>>>>> 127d3f7e1d555505177c53819bcbf68334b7bb0e
                     break;
                 case 3:
                     System.out.println("Titular: " + cuenta.getTitular());
